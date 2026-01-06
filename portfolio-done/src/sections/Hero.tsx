@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 import { Container } from '../components/layout/Container'
-import { Button } from '../components/ui/button'
+import { Button } from '../components/ui/Button'
 import { FileDown, ArrowRight } from 'lucide-react'
 import { ThemeToggle } from '../components/theme-toggle'
 
