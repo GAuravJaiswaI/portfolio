@@ -45,21 +45,21 @@ export function Experience() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-12 sm:mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 px-4">
             Building the future of web.
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto px-4">
             Building impactful products and leading frontend initiatives.
           </p>
         </motion.div>
 
         <div className="relative">
           {/* Timeline line */}
-          <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-0.5 bg-border -translate-x-1/2" />
+          <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-0.5 bg-border -translate-x-1/2 hidden sm:block" />
 
-          <div className="space-y-12">
+          <div className="space-y-8 sm:space-y-12">
             {experiences.map((exp, index) => (
               <motion.div
                 key={exp.id}
@@ -67,51 +67,51 @@ export function Experience() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                className={`relative grid md:grid-cols-2 gap-8 ${
+                className={`relative grid md:grid-cols-2 gap-4 sm:gap-8 ${
                   index % 2 === 0 ? 'md:text-right' : ''
                 }`}
               >
                 {/* Timeline dot */}
-                <div className="absolute left-4 md:left-1/2 top-8 w-4 h-4 bg-primary rounded-full -translate-x-1/2 ring-4 ring-background" />
+                <div className="absolute left-4 md:left-1/2 top-6 sm:top-8 w-3 h-3 sm:w-4 sm:h-4 bg-primary rounded-full -translate-x-1/2 ring-4 ring-background z-10 hidden sm:block" />
 
                 {/* Content */}
-                <div className={`${index % 2 === 0 ? 'md:col-start-1' : 'md:col-start-2'} pl-12 md:pl-0`}>
-                  <Card className="glass hover:border-primary/20 transition-all duration-300">
-                    <CardHeader>
-                      <div className="flex items-start justify-between mb-2">
-                        <div>
-                          <CardTitle className="text-2xl font-bold mb-1">
+                <div className={`${index % 2 === 0 ? 'md:col-start-1' : 'md:col-start-2'} pl-0 sm:pl-12 md:pl-0`}>
+                  <Card className="glass hover:border-primary/20 transition-all duration-300 hover:shadow-lg">
+                    <CardHeader className="pb-3 sm:pb-4">
+                      <div className="flex flex-col sm:flex-row items-start justify-between gap-2 mb-2">
+                        <div className="w-full sm:w-auto">
+                          <CardTitle className="text-xl sm:text-2xl font-bold mb-1">
                             {exp.role}
                           </CardTitle>
-                          <div className="flex items-center gap-2 text-muted-foreground">
-                            <Briefcase className="w-4 h-4" />
+                          <div className="flex items-center gap-2 text-muted-foreground text-sm sm:text-base">
+                            <Briefcase className="w-4 h-4 flex-shrink-0" />
                             <span className="font-medium">{exp.company}</span>
                           </div>
                         </div>
                       </div>
-                      <div className="flex items-center gap-4 text-sm text-muted-foreground">
+                      <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-4 text-xs sm:text-sm text-muted-foreground">
                         <div className="flex items-center gap-1">
-                          <Calendar className="w-4 h-4" />
+                          <Calendar className="w-3 h-3 sm:w-4 sm:h-4 flex-shrink-0" />
                           <span>{exp.duration}</span>
                         </div>
-                        <Badge variant="secondary">
+                        <Badge variant="secondary" className="text-xs">
                           {exp.type}
                         </Badge>
                       </div>
                     </CardHeader>
                     <CardContent>
-                      <ul className="space-y-2 mb-4">
+                      <ul className="space-y-2 sm:space-y-3 mb-4">
                         {exp.responsibilities.map((resp, idx) => (
                           <li
                             key={idx}
                             className="flex items-start gap-2 text-muted-foreground"
                           >
-                            <TrendingUp className="w-4 h-4 mt-0.5 text-primary flex-shrink-0" />
-                            <span className="text-sm">{resp}</span>
+                            <TrendingUp className="w-3 h-3 sm:w-4 sm:h-4 mt-0.5 text-primary flex-shrink-0" />
+                            <span className="text-xs sm:text-sm leading-relaxed">{resp}</span>
                           </li>
                         ))}
                       </ul>
-                      <div className="flex flex-wrap gap-2 pt-4 border-t">
+                      <div className="flex flex-wrap gap-1.5 sm:gap-2 pt-3 sm:pt-4 border-t">
                         {exp.skills.map((skill) => (
                           <Badge
                             key={skill}

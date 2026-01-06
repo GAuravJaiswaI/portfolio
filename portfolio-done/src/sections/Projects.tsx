@@ -53,17 +53,17 @@ export function Projects() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-12 sm:mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 px-4">
             What I can do for you.
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto px-4">
             Real-world applications built with modern technologies and best practices.
           </p>
         </motion.div>
 
-        <div className="grid gap-8">
+        <div className="grid gap-6 sm:gap-8">
           {/* Featured Project */}
           {projects.filter(p => p.featured).map((project, index) => (
             <motion.div
@@ -73,29 +73,29 @@ export function Projects() {
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              <Card className="overflow-hidden glass border-primary/20 hover:border-primary/40 transition-all duration-300">
+              <Card className="overflow-hidden glass border-primary/20 hover:border-primary/40 transition-all duration-300 hover:shadow-xl">
                 <div className="absolute inset-0 gradient-radial opacity-50" />
                 <CardHeader className="relative pb-4">
-                  <div className="flex items-start justify-between mb-2">
-                    <Badge variant="secondary" className="bg-primary/10 text-primary border-primary/20">
+                  <div className="flex flex-col sm:flex-row items-start justify-between gap-2 mb-2">
+                    <Badge variant="secondary" className="bg-primary/10 text-primary border-primary/20 text-xs sm:text-sm">
                       <Sparkles className="w-3 h-3 mr-1" />
                       Featured Project
                     </Badge>
                     {project.impact && (
-                      <Badge variant="outline" className="border-green-600/20 text-green-600">
+                      <Badge variant="outline" className="border-green-600/20 text-green-600 text-xs sm:text-sm">
                         {project.impact}
                       </Badge>
                     )}
                   </div>
-                  <CardTitle className="text-3xl md:text-4xl font-bold mb-3">
+                  <CardTitle className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3">
                     {project.title}
                   </CardTitle>
-                  <CardDescription className="text-lg text-muted-foreground">
+                  <CardDescription className="text-base sm:text-lg text-muted-foreground leading-relaxed">
                     {project.longDescription || project.description}
                   </CardDescription>
                 </CardHeader>
                 <CardContent className="relative">
-                  <div className="flex flex-wrap gap-2 mb-6">
+                  <div className="flex flex-wrap gap-1.5 sm:gap-2 mb-4 sm:mb-6">
                     {project.techStack.map((tech) => (
                       <Badge
                         key={tech}
@@ -107,8 +107,8 @@ export function Projects() {
                     ))}
                   </div>
                 </CardContent>
-                <CardFooter className="relative gap-4">
-                  <Button variant="default" asChild>
+                <CardFooter className="relative gap-2 sm:gap-4 flex-col sm:flex-row">
+                  <Button variant="default" size="sm" className="w-full sm:w-auto" asChild>
                     <a
                       href={project.github}
                       target="_blank"
@@ -120,7 +120,7 @@ export function Projects() {
                     </a>
                   </Button>
                   {project.live !== '#' && (
-                    <Button variant="outline" asChild>
+                    <Button variant="outline" size="sm" className="w-full sm:w-auto" asChild>
                       <a
                         href={project.live}
                         target="_blank"
@@ -137,7 +137,7 @@ export function Projects() {
           ))}
 
           {/* Other Projects */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
             {projects.filter(p => !p.featured).map((project, index) => (
               <motion.div
                 key={project.id}
@@ -146,17 +146,17 @@ export function Projects() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
               >
-                <Card className="h-full glass hover:border-primary/20 transition-all duration-300 group">
+                <Card className="h-full glass hover:border-primary/20 transition-all duration-300 group hover:shadow-lg">
                   <CardHeader>
-                    <CardTitle className="text-xl font-semibold mb-2 group-hover:text-primary transition-colors">
+                    <CardTitle className="text-lg sm:text-xl font-semibold mb-2 group-hover:text-primary transition-colors">
                       {project.title}
                     </CardTitle>
-                    <CardDescription>
+                    <CardDescription className="text-sm sm:text-base">
                       {project.description}
                     </CardDescription>
                   </CardHeader>
                   <CardContent>
-                    <div className="flex flex-wrap gap-2">
+                    <div className="flex flex-wrap gap-1.5 sm:gap-2">
                       {project.techStack.map((tech) => (
                         <Badge
                           key={tech}
@@ -168,7 +168,7 @@ export function Projects() {
                       ))}
                     </div>
                   </CardContent>
-                  <CardFooter className="gap-4">
+                  <CardFooter className="gap-2 sm:gap-4 flex-col sm:flex-row">
                     <Button variant="ghost" size="sm" asChild>
                       <a
                         href={project.github}

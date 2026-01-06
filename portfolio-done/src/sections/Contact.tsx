@@ -46,27 +46,27 @@ export function Contact() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-12 sm:mb-16"
         >
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 px-4 leading-tight">
             The next chapter of your project
             <span className="block gradient-text">is yours.</span>
           </h2>
           
-          <p className="text-xl text-muted-foreground mb-8 max-w-3xl mx-auto">
+          <p className="text-base sm:text-lg md:text-xl text-muted-foreground mb-6 sm:mb-8 max-w-3xl mx-auto px-4">
             I'm always open to discussing new opportunities, interesting projects, 
             or just having a conversation about technology.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" asChild className="group">
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center px-4">
+            <Button size="lg" asChild className="group w-full sm:w-auto">
               <a href="mailto:gauravjaiswal0531@gmail.com">
                 <MessageCircle className="w-4 h-4 mr-2" />
                 Start a conversation
                 <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
               </a>
             </Button>
-            <Button size="lg" variant="outline" asChild>
+            <Button size="lg" variant="outline" asChild className="w-full sm:w-auto">
               <a href="/Gaurav_jaiswal_Res01-1-2.pdf" download>
                 Talk to my resume
               </a>
@@ -75,7 +75,7 @@ export function Contact() {
         </motion.div>
         
         {/* Contact cards */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 max-w-5xl mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 max-w-5xl mx-auto">
           {contactLinks.map((link, index) => (
             <motion.a
               key={link.name}
@@ -88,13 +88,13 @@ export function Contact() {
               transition={{ duration: 0.6, delay: index * 0.05 }}
               className="block"
             >
-              <Card className={`p-6 h-full glass hover:border-primary/20 transition-all duration-300 group ${link.color}`}>
+              <Card className={`p-4 sm:p-6 h-full glass hover:border-primary/20 transition-all duration-300 group hover:shadow-lg ${link.color}`}>
                 <div className="flex flex-col items-center text-center">
-                  <div className="p-3 bg-secondary/50 rounded-lg mb-3 group-hover:scale-110 transition-transform">
-                    <link.icon className="h-6 w-6 transition-colors" />
+                  <div className="p-2 sm:p-3 bg-secondary/50 rounded-lg mb-2 sm:mb-3 group-hover:scale-110 transition-transform">
+                    <link.icon className="h-5 w-5 sm:h-6 sm:w-6 transition-colors" />
                   </div>
-                  <p className="text-sm text-muted-foreground mb-1">{link.name}</p>
-                  <p className="font-medium text-foreground">
+                  <p className="text-xs sm:text-sm text-muted-foreground mb-1">{link.name}</p>
+                  <p className="font-medium text-foreground text-sm sm:text-base break-all">
                     {link.value}
                   </p>
                 </div>
@@ -109,12 +109,12 @@ export function Contact() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.4 }}
-          className="mt-24 pt-8 border-t text-center"
+          className="mt-16 sm:mt-24 pt-6 sm:pt-8 border-t text-center px-4"
         >
-          <p className="text-sm text-muted-foreground">
+          <p className="text-xs sm:text-sm text-muted-foreground">
             Built with React, TypeScript, and Tailwind CSS
           </p>
-          <p className="text-sm text-muted-foreground mt-2">
+          <p className="text-xs sm:text-sm text-muted-foreground mt-2">
             © 2024 Gaurav Jaiswal. All rights reserved.
           </p>
         </motion.div>
